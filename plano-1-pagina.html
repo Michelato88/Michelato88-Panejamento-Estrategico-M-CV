@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Margiota 2027 em 1 página</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: rascunho de oficina — projeto sendo desenhado a giz/caneta antes de construir
+   IDEA: a prancha azul de projeto (blueprint) de programa de TV, folha lisa sem quadriculado
+   PICTURE: a própria prancha — caixas tortas brancas, setas, cotas de engenharia, estrela no checkpoint
+   COLOUR+TYPE: azul blueprint liso, tinta branca, amarelo-giz só para destaque; Caveat (títulos) + Architects Daughter (texto)
+   LAYOUT: uma prancha só, grade de 12 colunas que empilha abaixo de 760px */
+:root{color-scheme:dark;--bp:#1c4e8f;--bp2:#163f76;--ink:#f3f7ff;--ink2:#bcd2f3;--hi:#ffe27a}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:#0f2b52;color:var(--ink);font:17px/1.5 'Architects Daughter','Comic Sans MS',cursive;overflow-x:clip}
+.sheet{position:relative;max-width:1400px;margin:24px auto;padding:44px 48px 40px;background:radial-gradient(120% 90% at 50% 40%,#2259a0 0%,var(--bp) 45%,var(--bp2) 100%);box-shadow:0 20px 60px #0008;border-radius:4px;overflow:hidden}
+.sheet::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grid{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:22px 26px}
+.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
+h1,h2{font-family:Caveat,cursive;font-weight:700;margin:0;line-height:1.05;color:var(--ink)}
+h1{font-size:clamp(44px,6vw,72px);transform:rotate(-1.5deg);transform-origin:left}
+h2{font-size:30px;margin-bottom:4px}
+p{margin:0 0 4px}
+.sub{font-family:Caveat,cursive;font-size:26px;color:var(--ink2)}
+.box{border:2.5px solid var(--ink);border-radius:255px 18px 225px 15px/15px 225px 18px 255px;padding:14px 18px;position:relative}
+.box.a{transform:rotate(-.6deg)}.box.b{transform:rotate(.5deg)}
+.box.dash{border-style:dashed}
+.hi{color:var(--hi)}
+.mark{background:linear-gradient(100deg,transparent 2%,#ffe27a55 4%,#ffe27a40 96%,transparent 99%);padding:0 .25em;border-radius:.4em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.blank{display:inline-block;min-width:4.2em;border-bottom:2px dashed var(--ink2);color:var(--ink2);text-align:center;line-height:1.2}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;border:2px solid var(--ink);border-radius:50% 45% 52% 48%/48% 55% 45% 52%;font-family:Caveat,cursive;font-weight:700;font-size:20px;margin-right:6px;vertical-align:middle}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px}
+.stat b{font-family:Caveat,cursive;font-size:34px;line-height:1;display:block;color:var(--ink)}
+.stat span{font-size:14px;color:var(--ink2)}
+.mix{display:flex;height:58px;margin:10px 0 6px;border:2.5px solid var(--ink);border-radius:12px 4px 14px 6px/6px 14px 4px 12px;overflow:hidden}
+.mix div{flex:1;border-right:2px dashed var(--ink2);display:grid;place-items:center;text-align:center;font-size:15px;line-height:1.15;padding:2px}
+.mix div:last-child{border-right:0}
+.tl{position:relative;padding-top:6px}
+.qs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.qs .box{min-height:128px;font-size:15px;line-height:1.4}
+.qs b{font-family:Caveat,cursive;font-size:26px;display:block}
+.dim{display:flex;align-items:center;gap:8px;margin-top:10px;color:var(--ink2);font-family:Caveat,cursive;font-size:22px}
+.dim i{flex:1;height:0;border-top:2px solid var(--ink2);position:relative}
+.dim i::before,.dim i::after{content:"";position:absolute;top:-9px;width:2px;height:16px;background:var(--ink2)}
+.dim i::before{left:0}.dim i::after{right:0}
+.months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));text-align:center;font-size:14px;color:var(--ink2);margin-top:4px}
+.months .jun{color:var(--hi);font-weight:700}
+.star{position:absolute;right:calc(50% - 22px);top:-30px;width:44px;height:44px;color:var(--hi)}
+ul{margin:4px 0 0;padding-left:20px}li{margin:2px 0}
+li::marker{content:"→ ";color:var(--ink2)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:22px;font-family:Caveat,cursive;font-size:22px;color:var(--ink2)}
+.ar{width:70px;height:30px;color:var(--ink);overflow:visible;vertical-align:middle}
+.doodle{position:absolute;right:10px;top:8px;width:58px;height:58px;color:var(--ink2);opacity:.8}
+.cons{border-width:3px}
+.cols2{columns:2;column-gap:40px}
+@media(max-width:760px){.cols2{columns:1}}
+.cgrid{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:26px;margin-top:6px}
+.cgrid>div+div{border-left:2px dashed var(--ink2);padding-left:22px}
+.lbl{font-family:Caveat,cursive;font-size:24px;color:var(--ink2);margin:0}
+.bigc{font-family:Caveat,cursive;font-size:30px}
+.small2{font-size:14px;color:var(--ink2)}
+.ar.sm{width:44px;height:20px}
+@media(max-width:760px){.cgrid{grid-template-columns:minmax(0,1fr)}.cgrid>div+div{border-left:0;padding-left:0;border-top:2px dashed var(--ink2);padding-top:12px}}
+@media(max-width:760px){.sheet{margin:0;padding:28px 18px;border-radius:0}.grid>*{grid-column:span 12}.qs{grid-template-columns:repeat(2,minmax(0,1fr))}.months{font-size:11px}.star{right:auto;left:calc(50% - 22px)}}
+@media(prefers-reduced-motion:no-preference){.box,.mix{animation:draw .6s ease both}@keyframes draw{from{opacity:0;filter:blur(2px)}}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="w"><feTurbulence baseFrequency=".035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.5"/></filter>
+<symbol id="rt" viewBox="0 0 80 30"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#w)"><path d="M3 17C20 8 46 23 73 14"/><path d="M62 5L75 14L61 24"/></g></symbol>
+</defs></svg>
+
+<main class="sheet">
+<div class="grid">
+
+  <header class="s8">
+    <h1>Margiota 2027 · plano em 1 página</h1>
+    <p class="sub">Contravento · rascunho para preencher com as respostas da Vanessa</p>
+  </header>
+
+  <section class="s4 box b" aria-label="Ponto de partida">
+    <h2>Ponto de partida</h2>
+    <div class="stats">
+      <div class="stat"><b>~25 mil</b><span>peças em estoque</span></div>
+      <div class="stat"><b>~R$50</b><span>ticket médio hoje</span></div>
+      <div class="stat"><b>~R$16 mil</b><span>por mês, 5 canais</span></div>
+      <div class="stat"><b class="hi">~6,5 anos</b><span>pra escoar nesse ritmo</span></div>
+    </div>
+  </section>
+
+  <section class="s12 box a" aria-label="Objetivo">
+    <h2>Objetivo 2027</h2>
+    <p><span class="mark">Fazer das consultoras o motor do ano</span>: canal estruturado, consultoras ativas e o estoque virando caixa, com acompanhamento quinzenal. <span class="blank">ajustar</span></p>
+  </section>
+
+  <section class="s4 box b" aria-label="Meta do ano">
+    <h2>Meta do ano</h2>
+    <p>faturamento: R$ <span class="blank">____</span></p>
+    <p>custo-diretriz (×14): R$ <span class="blank">____</span></p>
+    <p>faturamento mínimo: R$ <span class="blank">____</span></p>
+    <p class="hi">caixa mínimo: R$ <span class="blank">____</span></p>
+    <svg class="doodle" viewBox="0 0 60 60" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" filter="url(#w)"><circle cx="30" cy="30" r="24"/><circle cx="30" cy="30" r="14"/><circle cx="30" cy="30" r="4"/><path d="M30 30L52 8M46 8h6v6"/></g></svg>
+  </section>
+
+  <section class="s8 box a" aria-label="Participação dos canais">
+    <h2>Participação dos canais · 2026 real → 2027 meta</h2>
+    <div class="mix">
+      <div style="flex:1.8;background:#ffe27a22"><span class="hi">consultoras ★ foco</span><br><span class="blank">__%</span></div>
+      <div>outlet<br><span class="blank">__%</span></div>
+      <div>site<br><span class="blank">__%</span></div>
+      <div>atacado<br><span class="blank">__%</span></div>
+      <div>lives<br><span class="blank">__%</span></div>
+    </div>
+    <p style="font-size:15px">consultoras são o foco; os outros 4 sustentam o caixa enquanto o canal amadurece · regra site × consultora: <span class="blank">___</span></p>
+  </section>
+
+  <section class="s12 box b tl" aria-label="Plano por trimestre">
+    <h2>O ano, trimestre a trimestre</h2>
+    <div class="qs">
+      <div class="box dash a"><b>T1 · jan–mar</b>caixa: outlet + atacado + site<br><span class="hi">consultoras: piloto · 1º top 5 em março</span><br>meta R$ <span class="blank">___</span></div>
+      <div class="box dash b"><b>T2 · abr–jun</b>medir e ajustar a régua<br><span class="hi">consultoras: líderes · TV do semestre</span><br>meta R$ <span class="blank">___</span></div>
+      <div class="box dash a"><b>T3 · jul–set</b>foco do 2º semestre ou plano B<br><span class="hi">consultoras: turma todo mês</span><br>meta R$ <span class="blank">___</span></div>
+      <div class="box dash b"><b>T4 · out–dez</b>fim de ano + preparar 2028<br><span class="hi">consultoras: Natal · TV do semestre</span><br>meta R$ <span class="blank">___</span></div>
+    </div>
+    <div style="position:relative">
+      <div class="dim"><span>jan</span><i></i><span>12 meses</span><i></i><span>dez</span></div>
+      <div class="months"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span class="jun">jun ★</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
+      <p class="hi" style="text-align:center;font-family:Caveat,cursive;font-size:24px;margin-top:4px">junho = checkpoint: replanejar o 2º semestre + 2028 (quiçá plano de 2 anos)</p>
+    </div>
+  </section>
+
+  <section class="s12 box a cons" aria-label="Consultoras">
+    <h2 class="hi">Consultoras · o foco do ano e o sucesso da Contravento</h2>
+    <div class="cgrid">
+      <div>
+        <p class="lbl">meta em 6 meses</p>
+        <p><span class="blank">__</span> consultoras ativas <span class="small2">(vendem a cada quinzena)</span></p>
+        <p><span class="blank">__</span> peças/mês pelo canal</p>
+        <p class="lbl" style="margin-top:8px">fases</p>
+        <p>piloto <svg class="ar sm" aria-hidden="true"><use href="#rt"/></svg> líderes <svg class="ar sm" aria-hidden="true"><use href="#rt"/></svg> escala</p>
+        <p class="small2">promessa por fase: mês 1 <span class="blank">__ peças</span> · mês 3 R$ <span class="blank">__</span></p>
+      </div>
+      <div>
+        <p class="lbl">frentes de execução</p>
+        <p><span class="num">1</span><b>recrutamento:</b> turma todo mês (indicação, lives, clientes do outlet e site)</p>
+        <p><span class="num">2</span><b>rotina de vendas:</b> catálogo semanal no zap + campanhas de datas</p>
+        <p><span class="num">3</span><b>líderes:</b> ganho só sobre vendas do grupo, nunca sobre inscrição</p>
+        <p><span class="num">4</span><b>retenção:</b> régua dia 15 · 30 · 45 + encontro mensal com a Vanessa</p>
+      </div>
+      <div>
+        <p class="lbl">gamificação</p>
+        <p><b>mês:</b> top 3 · R$300 / 200 / 100</p>
+        <p><b>trimestre:</b> top 5 · R$1.000 a R$600 + dia com a Vanessa</p>
+        <p><b>semestre:</b> TV 65" · celular</p>
+        <p class="small2">só concorre quem está ativa · crédito em roupas Vanessa</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="s4 box b" aria-label="Três prioridades">
+    <h2>3 prioridades</h2>
+    <p><span class="num">1</span>consultoras ativas, não headcount</p>
+    <p><span class="num">2</span>caixa: fluxo acompanhado a cada 15 dias</p>
+    <p><span class="num">3</span>escoar por bloco: Zinzane (consultoras, site) · Sawari (outlet, atacado)</p>
+  </section>
+
+  <section class="s4 box a" aria-label="Plano B">
+    <h2 class="hi">Plano B · 2º semestre</h2>
+    <p>gatilho em maio: se as consultoras ativas ficarem abaixo de <span class="blank">__</span> ou o canal abaixo de <span class="blank">__%</span> da meta</p>
+    <p><svg class="ar" aria-hidden="true"><use href="#rt"/></svg> o foco vira para <span class="blank">______</span></p>
+  </section>
+
+  <section class="s4 box b" aria-label="Painel quinzenal">
+    <h2>Painel quinzenal</h2>
+    <ul>
+      <li>caixa: entrou · saiu · próximas 4 semanas</li>
+      <li>vendas por canal × meta</li>
+      <li>peças escoadas e ticket médio</li>
+      <li>funil das consultoras: inscritas → ativas → seguem após 90 dias</li>
+    </ul>
+    <p class="hi" style="margin-top:6px">nada novo entra sem passar pelo ritual</p>
+  </section>
+
+  <section class="s12 box dash a" aria-label="Riscos">
+    <h2>Riscos de olho</h2>
+    <ul class="cols2">
+      <li>caixa curto antes do estoque girar</li>
+      <li>site × WhatsApp disputando a mesma cliente</li>
+      <li>consultoras inativas depois da inscrição</li>
+      <li>a queima acostumar a cliente a preço baixo</li>
+    </ul>
+  </section>
+
+</div>
+<div class="foot"><span>Contravento · Margiota · nov/2026</span><span>rascunho · os ____ fecham com as respostas da Vanessa</span></div>
+</main>
+</body>
+</html>

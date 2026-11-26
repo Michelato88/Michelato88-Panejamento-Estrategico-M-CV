@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caderno Margiota</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: rascunho de consultor, direto, à caneta — pensamento antes da apresentação
+   IDEA: um caderno espiral de folhas pautadas com caneta azul, vermelha e marca-texto
+   PICTURE: as próprias folhas — caixas tortas, setas, post-its, pirâmide e contas na margem
+   COLOUR+TYPE: papel claro, azul caneta, vermelho alerta, amarelo/verde/rosa marca-texto; Caveat (títulos) + Kalam (texto)
+   LAYOUT: folhas empilhadas numa mesa, índice de páginas no topo, empilha tudo abaixo de 600px */
+:root{color-scheme:light dark;--desk:light-dark(#d8d1c2,#1c1b1a);--paper:#fbfaf4;--line:#cddcf0;--mg:#eaa3a0;--blue:#1c3d8c;--ink:#22252c;--red:#c3352c;--green:#1f7a4a}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--desk);color:var(--ink);font:300 18px/32px Kalam,'Comic Sans MS',cursive;overflow-x:clip}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:10px 12px;background:var(--desk)}
+nav a{font:700 20px/1 Caveat,cursive;color:light-dark(#2a2a2a,#eee);text-decoration:none;padding:10px 12px;border:2px solid currentColor;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;min-height:44px;display:inline-flex;align-items:center}
+nav a:focus-visible,button:focus-visible{outline:3px solid #ffd54a;outline-offset:2px}
+.wrap{max-width:940px;margin:0 auto;padding:8px 14px 60px}
+.page{position:relative;background:repeating-linear-gradient(to bottom,transparent 0 31px,var(--line) 31px 32px),var(--paper);background-position:0 14px;padding:46px 34px 44px 96px;margin:0 0 34px;box-shadow:0 1px 0 #0001,0 14px 30px #0003;border-radius:3px}
+.page::before{content:"";position:absolute;top:0;bottom:0;left:72px;width:2px;background:var(--mg)}
+.page::after{content:"";position:absolute;top:18px;bottom:18px;left:20px;width:20px;background:radial-gradient(circle at 10px 10px,light-dark(#d8d1c2,#1c1b1a) 7px,#0002 8px,transparent 9px) 0 0/20px 46px repeat-y}
+.pn{position:absolute;top:12px;right:22px;font:700 26px/1 Caveat,cursive;color:var(--blue);width:44px;height:44px;display:grid;place-items:center;border:2.5px solid var(--blue);border-radius:50% 45% 52% 48%/48% 55% 45% 52%;transform:rotate(-6deg)}
+h1,h2,h3{font-family:Caveat,cursive;font-weight:700;color:var(--blue);margin:0;text-wrap:balance}
+h1{font-size:clamp(40px,6vw,56px);line-height:1.05;transform:rotate(-1.2deg);margin-bottom:6px}
+h2{font-size:clamp(34px,5vw,44px);line-height:1.1;transform:rotate(-1deg);margin-bottom:10px}
+h3{font-size:28px;line-height:32px;margin:10px 0 2px}
+p{margin:0 0 8px}
+ul{margin:0 0 8px;padding-left:22px}li{margin:0}
+li::marker{content:"– ";color:var(--blue)}
+.b{color:var(--blue)}.r{color:var(--red)}.g{color:var(--green)}
+.cv{font-family:Caveat,cursive;font-size:25px;font-weight:500;line-height:30px}
+.hl{background:linear-gradient(100deg,transparent 1%,#fff06a 3%,#ffe74a 95%,transparent 99%);padding:0 .25em;border-radius:.5em .2em .6em .3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hg{background:linear-gradient(100deg,transparent 1%,#b5f2c8 3%,#9eecb6 95%,transparent 99%);padding:0 .25em;border-radius:.4em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hp{background:linear-gradient(100deg,transparent 1%,#ffc4e1 3%,#ffb0d6 95%,transparent 99%);padding:0 .25em;border-radius:.4em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.u{text-decoration:underline wavy;text-decoration-thickness:1.5px;text-underline-offset:5px}
+.box{border:2.5px solid currentColor;border-radius:255px 18px 225px 15px/15px 225px 18px 255px;padding:10px 16px;margin:6px 0}
+.box.t1{transform:rotate(-.8deg)}.box.t2{transform:rotate(.7deg)}
+.num{display:inline-grid;place-items:center;width:38px;height:38px;border:2.3px solid currentColor;border-radius:50% 45% 52% 48%/48% 55% 45% 52%;font:700 24px/1 Caveat,cursive;margin-right:6px;vertical-align:middle}
+.sticky{background:#fff59d;color:#2b2a20;padding:12px 16px;box-shadow:2px 6px 12px #0003;transform:rotate(-2deg);line-height:28px}
+.sticky.pink{background:#ffcfe6;transform:rotate(1.6deg)}.sticky.green{background:#c9f5d6;transform:rotate(-1deg)}
+.sticky b{font-family:Caveat,cursive;font-size:24px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:10px 0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:10px 0;align-items:start}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ar{display:block;margin:2px auto;width:40px;height:56px;color:var(--blue);overflow:visible}
+.ar.r{color:var(--red)}
+.arr{display:inline-block;width:58px;height:26px;vertical-align:middle;color:var(--blue);overflow:visible;flex:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:16px;line-height:26px;margin-top:6px}
+.tri{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:8px}
+.tri .box{min-height:150px;font-size:16px;line-height:26px}
+.tri h3{font-size:26px;margin:0}
+.math{font-family:Caveat,cursive;font-size:25px;line-height:32px}
+.strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.pyr{width:100%;max-width:360px;height:auto;display:block;margin:0 auto}
+.msg{background:#fff;color:#22252c;border:1.5px solid #c9c4b5;border-radius:4px;padding:16px 18px;font:400 16px/26px Kalam,cursive;white-space:pre-wrap;box-shadow:3px 5px 0 #0001;transform:rotate(.3deg)}
+button{font:700 22px/1 Caveat,cursive;color:#fff;background:var(--blue);border:0;padding:10px 20px;min-height:44px;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;cursor:pointer;margin:6px 0 12px}
+.ok{font-family:Caveat,cursive;font-size:22px;color:var(--green);margin-left:10px}
+.check{color:var(--green);font-family:Caveat,cursive;font-size:28px}
+.op{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:10px 0}
+.op .box{margin:0;font-size:16px;line-height:26px;min-height:120px}
+.op .box h3{font-size:24px;line-height:28px;margin:0 0 2px}
+.op .wide{grid-column:span 3}.op .two{grid-column:span 2}
+.blank{color:#9aa3b5}
+.mix{display:flex;gap:8px;margin-top:4px}.mix span{flex:1;border:2px dashed var(--blue);border-radius:8px 12px 6px 14px;text-align:center;padding:2px 0}
+@media(max-width:700px){.op{grid-template-columns:minmax(0,1fr)}.op .wide,.op .two{grid-column:auto}}
+@media(max-width:700px){.grid3,.grid2{grid-template-columns:minmax(0,1fr)}.tri{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){body{font-size:17px}.page{padding:56px 16px 32px 50px}.page::before{left:38px}.page::after{left:8px;width:16px;background-size:16px 46px}.tri{grid-template-columns:minmax(0,1fr)}.arr{width:40px}}
+@media(prefers-reduced-motion:no-preference){.page{animation:in .5s ease both}@keyframes in{from{opacity:0;transform:translateY(10px)}}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="w"><feTurbulence baseFrequency=".035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.5"/></filter>
+    <symbol id="dn" viewBox="0 0 40 60"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#w)"><path d="M21 3C13 18 29 32 20 54"/><path d="M11 44L20 56L30 43"/></g></symbol>
+    <symbol id="rt" viewBox="0 0 80 30"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#w)"><path d="M3 17C20 8 46 23 73 14"/><path d="M62 5L75 14L61 24"/></g></symbol>
+  </defs>
+</svg>
+
+<nav aria-label="Páginas">
+  <a href="#mapa">1 · mapa</a><a href="#caixa">2 · caixa</a><a href="#estoque">3 · estoque</a><a href="#canais">4 · canais</a><a href="#consultoras">5 · consultoras</a><a href="#ritual">6 · sucesso + ritual</a><a href="#destino">7 · onde vamos chegar</a><a href="#mensagem">8 · msg p/ dona</a>
+</nav>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section class="page" id="mapa">
+  <span class="pn">1</span>
+  <h1>Margiota × Contravento</h1>
+  <p class="cv b">Planejamento estratégico → <span class="u">"mostrar o oculto"</span></p>
+
+  <div class="grid2">
+    <div>
+      <h3>Onde ela está</h3>
+      <ul>
+        <li>fábrica (Margiota) fechou → <span class="hl">~25 mil peças em casa</span> <span class="cv">(estimativa dela)</span></li>
+        <li>ticket médio de venda hoje: <b>~R$50</b> → estoque vale ~<b>R$1,25 mi</b> a esse preço</li>
+        <li><b>Zinzane</b>: private label que a Margiota fabricou; a Zinzane está em RJ, mas o estoque já é da Vanessa · <b>ticket maior, menos peças</b></li>
+        <li>Zinzane é marca <b>AB</b>, mas hoje vende para <b>BC</b> a <span class="hp">preço de queima</span> · no futuro isso muda</li>
+        <li><b>Sawari</b>: muita peça, "modinha", <b>ticket baixo</b> → puxa o ticket médio pra R$50</li>
+        <li>Vanessa: 25+ anos de moda · já fez <b>R$14–15 mi/ano</b> · 30–40 mil peças/mês · private label p/ Planet Girls, Zinzane, M.Officer</li>
+        <li>Zinzane pode ser vendido <b>como Margiota</b> <span class="check">✓</span> <span class="r">· etiquetas: ainda não sabemos</span></li>
+        <li>hoje fatura <span class="hl">~R$16k/mês em média</span>, somando todos os canais</li>
+        <li>vende hoje por <b>5 caminhos</b>, com pouca maturidade; o <b>outlet de Barueri</b> puxa a fila</li>
+        <li class="r">sem ICP declarado · sem tocada de diretoria → atropela processos</li>
+      </ul>
+    </div>
+    <div class="sticky"><b>Prioridade nº 1</b><br>
+      <span class="hl">fluxo de caixa</span> + planejamento com <b>execução</b> + <span class="hl">acompanhamento QUINZENAL</span> <span class="cv">(já combinado)</span><br>
+      <span class="r">sem isso, nada dos outros pontos para em pé.</span>
+    </div>
+  </div>
+
+  <svg class="ar" aria-hidden="true"><use href="#dn"/></svg>
+
+  <div class="grid3">
+    <div class="box t1 b">
+      <h3><span class="num">1</span>Caixa (quick)</h3>
+      <ul><li><b>outlet Barueri</b> <span class="check">✓</span> <span class="cv">← puxa a fila</span></li><li>site <span class="check">✓</span></li><li>atacado <span class="check">✓</span></li><li>lives no Insta <span class="r">(baixo)</span></li><li>consultoras <span class="check">✓</span></li></ul>
+      <p class="r" style="font-size:16px">gerar caixa no curto prazo</p>
+    </div>
+    <div class="box t2" style="color:var(--red)">
+      <h3 style="color:var(--red)"><span class="num">2</span>Consultoras</h3>
+      <p>público <b>B / C</b></p>
+      <p>cenários curto · médio · longo</p>
+      <p><span class="hp">← nosso escopo</span></p>
+    </div>
+    <div class="box t1 b">
+      <h3><span class="num">3</span>Projeto Margiota</h3>
+      <p>mulher <b>AB</b> (site)</p>
+      <p>volta a produzir + picking China/Brasil</p>
+      <p class="cv">"tudo no seu tempo"</p>
+    </div>
+  </div>
+
+  <p class="cv r" style="margin-top:14px">→ não dá pra entregar consultoras sem o planejamento estratégico. Um sustenta o outro.</p>
+  <div class="legend">
+    <span class="b">azul = o que sabemos</span>
+    <span class="r">vermelho = dúvida / alerta</span>
+    <span><span class="hl">amarelo</span> = prioridade</span>
+    <span>"?" = hipótese a validar com ela</span>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="page" id="caixa">
+  <span class="pn">2</span>
+  <h2>Quanto custa ficar de pé?</h2>
+
+  <div class="grid2">
+    <div class="box t1 b">
+      <h3>out/2026</h3>
+      <p>$ entrou → ______</p>
+      <p>$ saiu → ______</p>
+    </div>
+    <div>
+      <p class="cv b">$ saiu, abrindo:</p>
+      <ul>
+        <li>aluguel <span class="b">(água / luz)</span></li>
+        <li>pessoas / salários</li>
+        <li>terceiros <span class="b">(Contravento, agência de mkt)</span></li>
+        <li>dívidas <span class="r">← quanto/mês e até quando?</span></li>
+        <li>impostos</li>
+      </ul>
+    </div>
+  </div>
+
+  <svg class="ar" aria-hidden="true"><use href="#dn"/></svg>
+
+  <div class="row" style="justify-content:center">
+    <span class="box t2 math b">média custo/mês</span>
+    <svg class="arr" aria-hidden="true"><use href="#rt"/></svg>
+    <span class="math">× 14</span>
+    <svg class="arr" aria-hidden="true"><use href="#rt"/></svg>
+    <span class="box t1 math"><span class="hl">custo-diretriz 2027</span></span>
+  </div>
+  <p class="cv" style="text-align:center">×14 = 12 meses + 13º + contas de fim de ano + inflação + gordurinha</p>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="sticky pink"><b>Atenção</b><br>
+      R$ de custo ≠ R$ de venda.<br>
+      <b>faturamento mínimo = custo do ano ÷ margem que sobra</b><br>
+      venda de consultora paga 30% de comissão → sobra menos por peça pra cobrir custo.
+    </div>
+    <div>
+      <p class="cv r">Pergunta-chave:</p>
+      <p>o estoque está <b>quitado</b>?<br>ou ainda deve algo dele (fornecedor, Zinzane, banco)?</p>
+      <p class="r">se deve → a necessidade de caixa aumenta</p>
+    </div>
+  </div>
+
+  <svg class="ar" aria-hidden="true"><use href="#dn"/></svg>
+  <div class="grid2">
+    <div class="sticky green"><b>Hoje entra ~R$16k/mês</b><br>
+      isso cobre o custo de ficar de pé? <span class="r">(primeira conta a fazer)</span><br>
+      R$16k × 12 ≈ <b>R$192k/ano</b>
+    </div>
+    <div>
+      <p class="math">R$16k ÷ R$50 ≈ <b>320 peças/mês</b><br>25.000 ÷ 320 ≈ <span class="hl">78 meses ≈ 6,5 anos</span></p>
+      <p class="cv r">nesse ritmo, o estoque leva mais de 6 anos pra sair</p>
+      <p>→ o plano precisa <b>multiplicar</b> peças/mês ou ticket, não só organizar</p>
+      <p class="cv">(lembrando: ela já fez R$14–15 mi/ano)</p>
+    </div>
+  </div>
+  <p class="cv b" style="text-align:center;margin-top:10px">entender custos → projetar 2027 → depois, <span class="hl">mês a mês</span>, com acompanhamento quinzenal</p>
+</section>
+
+<!-- 3 -->
+<section class="page" id="estoque">
+  <span class="pn">3</span>
+  <h2>O estoque é o cofre</h2>
+  <p class="cv b">primeiro saber o que tem, depois decidir por onde sai</p>
+
+  <div class="grid2">
+    <div class="box t1">
+      <h3>Contar</h3>
+      <ul>
+        <li>quantas peças? <b class="b">~25 mil</b> <span class="cv">(estimativa dela)</span> → contar de verdade</li>
+        <li>de quê? (vestido, calça, blazer…)</li>
+        <li>quais tamanhos / grade?</li>
+        <li>Zinzane: quantas peças, de verdade? <span class="r">(5 modelos?)</span></li>
+        <li>valor a <b>custo</b> × a <b>preço sugerido</b></li>
+        <li>onde está guardado e quanto custa guardar?</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Dois estoques, duas lógicas</h3>
+      <p><span class="hg">Zinzane</span> · marca AB, hoje em <b>queima para BC</b> · ticket maior, menos peças<br>→ site (onde já está) · consultoras · lives</p>
+      <p><span class="hp">Sawari</span> · modinha, muita peça, ticket baixo<br>→ outlet · atacado em lote · lives de oferta</p>
+      <p class="r" style="font-size:16px;line-height:26px">"maior estoque" da Zinzane = em valor? (em peças parece ser a Sawari)</p>
+      <p class="cv r">cada bloco → canal → preço mínimo → prazo</p>
+    </div>
+  </div>
+
+  <div class="sticky" style="margin-top:14px;max-width:560px">
+    <b>Zap × site: mesma peça, mesmo preço</b><br>
+    consultoras já venderam <b>Zinzane</b>, ao mesmo preço do site (R$399–549).<br>
+    não é briga de preço, é <b>briga de canal</b>: a mesma cliente pode comprar nos dois, e na consultora a Margiota paga 30%.<br>
+    → definir <span class="hl">quem é a cliente de cada canal</span> e o que cada um vende<br>
+    <span class="r">hoje é tudo queima para BC; quando a Margiota voltar ao AB, site e consultora vão precisar de papéis diferentes</span>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="page" id="canais">
+  <span class="pn">4</span>
+  <h2>Canais: 2026 → 2027</h2>
+
+  <div class="grid3">
+    <div class="box t2 b"><h3><span class="num">0</span>Outlet Barueri</h3><p><span class="hl">hoje puxa a fila</span></p><p style="font-size:16px;line-height:26px">pede: ponto, equipe, vitrine girando · custo fixo de loja <span class="r">?</span></p></div>
+    <div class="box t1 b"><h3><span class="num">1</span>Site</h3><p>mulher AB</p><p style="font-size:16px;line-height:26px">pede: mkt, conteúdo, mídia, constância</p></div>
+    <div class="box t2 b"><h3><span class="num">2</span>Atacado</h3><p>quem compra? <span class="r">?</span></p><p style="font-size:16px;line-height:26px">pede: carteira, lote, desconto → caixa mais rápido</p></div>
+    <div class="box t1 b"><h3><span class="num">3</span>Consultoras</h3><p>mulher BC</p><p style="font-size:16px;line-height:26px">pede: recrutar, treinar, líder → caixa lento no início</p></div>
+    <div class="box t2 b"><h3><span class="num">4</span>Lives no Insta</h3><p><span class="r">baixo faturamento</span></p><p style="font-size:16px;line-height:26px">pede: constância, roteiro, oferta de live · pode virar vitrine das consultoras <span class="r">?</span></p></div>
+  </div>
+
+  <div class="row" style="justify-content:center">
+    <span class="math b">% de cada em 2026</span>
+    <svg class="arr" aria-hidden="true"><use href="#rt"/></svg>
+    <span class="math"><span class="hl">meta Δ 2027</span></span>
+  </div>
+  <p class="cv r" style="text-align:center">cada canal pede foco, tempo e investimento diferentes → com ~R$16k/mês, não dá pra acelerar os 5 ao mesmo tempo</p>
+
+  <div class="tri">
+    <div class="box t1"><h3 class="b">Tri 1</h3>caixa: outlet puxando<br>+ atacado + consultoras<br><span class="r">piloto?</span></div>
+    <div class="box t2"><h3 class="b">Tri 2</h3>medir, ajustar<br>a régua <span class="r">?</span></div>
+    <div class="box t1"><h3 class="b">Tri 3</h3><span class="hl">consultoras</span><br>ganham escala</div>
+    <div class="box t2"><h3 class="b">Tri 4</h3><span class="r">?</span><br>(Margiota volta a produzir?)</div>
+  </div>
+
+  <div class="sticky green" style="margin-top:18px;max-width:600px">
+    <b>ICP: brain com ela</b><br>desenhar a mulher de <b>cada</b> canal, com detalhes: quem é, onde está, quanto gasta, por que compra. Uma por canal (outlet · site · atacado · lives · consultora).
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="page" id="consultoras">
+  <span class="pn">5</span>
+  <h2>Consultoras: o mergulho</h2>
+
+  <div class="grid2">
+    <div>
+      <h3>Como funciona (workshop 24/11)</h3>
+      <ul>
+        <li>5 passos: cliente escolhe pela foto → paga → pedido cai na Margiota → Margiota despacha → consultora recebe comissão</li>
+        <li>vende pelo zap, <b>sem estoque, sem loja</b></li>
+        <li>comissão de <b>15% a 40%</b> conforme a peça (média 30%)</li>
+        <li>preço médio da peça: <b>R$150</b></li>
+        <li><span class="hl">entrada: R$297</span> (ou 12× R$30,72) = curso online + acesso ao estoque</li>
+        <li>método: modelo → conta → lista de 20 mulheres → plano de 90 dias</li>
+        <li class="r">1ª turma: inscrições até <b>sex 27/11</b> · hoje: 0 ativas</li>
+      </ul>
+      <p class="cv">↑ risco · ↑ retorno<br><span class="r">(risco = abandono e imagem, não estoque)</span></p>
+    </div>
+    <div class="box t2" style="color:var(--red)">
+      <h3 style="color:var(--red)">A conta fecha?</h3>
+      <p class="math" style="color:var(--ink)">R$3.000 ÷ 30% ÷ 22 dias ÷ R$150<br>≈ <b>3 peças/dia</b> = <span class="hl">66 peças/mês</span></p>
+      <p style="color:var(--ink)">mas a lista inicial é de <b>20 mulheres</b> e os dias 1–30 são "primeiras vendas no círculo".</p>
+      <p style="color:var(--ink)">→ 66 peças/mês não sai do círculo. R$3k é meta de mês 3+ e pede uma lista bem maior.</p>
+      <p class="cv">→ promessa realista por fase, senão vira frustração e abandono</p>
+      <p style="color:var(--ink)"><b>E se a peça sair a R$50</b> (ticket médio de hoje)? 30% = R$15 → R$3k pede <b>200 peças/mês</b> (~9/dia). Não fecha.</p>
+      <p class="cv">→ a consultora precisa de peças que sustentem ~R$150</p>
+      <p style="color:var(--ink)"><b>O nó, em parte desfeito:</b> hoje a consultora vende <b>Zinzane a preço de queima</b> para a mulher BC (o R$150 do workshop? <span class="r">confirmar</span>).<br>
+      Mas a Zinzane acaba e a queima não é o futuro: <span class="hl">quando ela acabar, o que a consultora vende?</span> → liga com o Projeto Margiota (coleção nova)</p>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:12px">
+    <div>
+      <svg class="pyr" viewBox="0 0 360 250" role="img" aria-label="Pirâmide: dona e Contravento no topo, líderes no meio, consultoras na base">
+        <g fill="none" stroke="#1c3d8c" stroke-width="2.6" stroke-linejoin="round" filter="url(#w)">
+          <path d="M180 10L345 238L15 240Z"/><path d="M96 126L264 124"/><path d="M53 186L307 184"/>
+        </g>
+        <g font-family="Caveat,cursive" font-weight="700" fill="#1c3d8c" text-anchor="middle">
+          <text x="180" y="92" font-size="21">dona +</text><text x="180" y="112" font-size="19">Contravento</text>
+          <text x="180" y="163" font-size="24">líderes</text>
+          <text x="180" y="222" font-size="26">consultoras</text>
+        </g>
+      </svg>
+      <p class="cv" style="text-align:center">pilares (6 meses): <b>1</b> tempo · <b>2</b> time · <b>3</b> ICP</p>
+    </div>
+    <div>
+      <h3>Fases <span class="r">?</span></h3>
+      <p><span class="num b">0</span><b>Piloto pequeno</b>: régua de entrada, kit, treino, meta de ativação</p>
+      <p><span class="num b">1</span><b>Líderes</b>: as melhores do piloto puxam grupos</p>
+      <p><span class="num b">2</span><b>Escala</b>: só depois que a régua provar que funciona</p>
+      <p class="cv r">critério pra mudar de fase: % que vende · peças/semana · quem continua após 30/60/90 dias</p>
+    </div>
+  </div>
+
+  <div class="sticky" style="margin-top:12px;max-width:620px">
+    <b>Não é headcount, é consultora ATIVA.</b><br>
+    a meta não é "ter X mil": é <span class="hl">X vendendo toda semana</span>.
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="box t1 g">
+      <h3 class="g">O workshop já tem ✓</h3>
+      <ul style="color:var(--ink)">
+        <li>história forte da Vanessa (credibilidade)</li>
+        <li>método simples: modelo · conta · lista · plano</li>
+        <li>roteiro de conversa no zap</li>
+        <li>plano de 90 dias em 3 tempos</li>
+        <li>filtro "é para / não é para"</li>
+        <li>entrada paga = pele em jogo</li>
+      </ul>
+    </div>
+    <div class="box t2" style="color:var(--red)">
+      <h3 style="color:var(--red)">O que falta ✗</h3>
+      <ul style="color:var(--ink)">
+        <li>operação: prazo, frete, troca, <b>quando cai a comissão</b></li>
+        <li>catálogo e grade disponíveis pra ela</li>
+        <li>o que acontece <b>depois</b> da compra dos R$297: grupo, líder, meta semanal</li>
+        <li>régua de ativação (quem não vende em 30 dias?)</li>
+        <li>quanto do estoque cabe nesse canal</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sticky pink" style="margin-top:14px;max-width:640px">
+    <b>"Sem risco" não é bem assim</b><br>
+    ela paga R$297 para entrar. Isso filtra bem, mas a promessa de R$3k precisa caber no plano de 90 dias. Se não couber, a frustração vira reclamação e afeta a imagem da marca.
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="page" id="ritual">
+  <span class="pn">6</span>
+  <h2>Qual é o nosso sucesso?</h2>
+  <div class="grid2">
+    <div class="box t1">
+      <p class="cv b">a Vanessa respondeu <span class="check">✓</span></p>
+      <p>sucesso da Contravento = <span class="hl">entregar o projeto das consultoras</span></p>
+      <p class="r">combinar o que é "entregue": só o projeto desenhado, ou consultoras ativas vendendo? → transformar em números (ex.: X ativas, Y peças/mês em 6 meses)</p>
+      <p class="cv">e mostrar que o planejamento estratégico é o chão do projeto: sem caixa, estoque e foco definidos, não há consultora que se sustente</p>
+    </div>
+    <div class="sticky green"><b>Ritual quinzenal (já combinado)</b><br>
+      mesmo dia e hora, a cada 15 dias:<br>
+      1. fluxo de caixa (entrou · saiu · próximas 4 semanas)<br>
+      2. vendas por canal × meta<br>
+      3. consultoras ativas<br>
+      4. ações: <b>o quê · quem · até quando</b><br>
+      <span class="r">nada novo entra sem passar pelo ritual → fim do atropelo</span>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px">Rascunho da apresentação (até 10)</h3>
+  <div class="grid2">
+    <ul>
+      <li>1. onde estamos (o oculto)</li>
+      <li>2. quanto custa ficar de pé</li>
+      <li>3. o cofre: estoque</li>
+      <li>4. canais hoje (% 2026)</li>
+      <li>5. meta 2027 por trimestre</li>
+    </ul>
+    <ul>
+      <li>6. ICP por canal</li>
+      <li>7. consultoras: como funciona + a conta</li>
+      <li>8. consultoras: fases</li>
+      <li>9. consultoras: o que medir</li>
+      <li>10. ritual quinzenal + próximos 90 dias</li>
+    </ul>
+  </div>
+
+  <h3>Próximos passos</h3>
+  <div class="row cv">
+    <span>Diego rabisca</span><svg class="arr" aria-hidden="true"><use href="#rt"/></svg>
+    <span>Maria Candida revisa</span><svg class="arr" aria-hidden="true"><use href="#rt"/></svg>
+    <span class="hl">msg com perguntas</span><svg class="arr" aria-hidden="true"><use href="#rt"/></svg>
+    <span>brain de ICP</span><svg class="arr" aria-hidden="true"><use href="#rt"/></svg>
+    <span>fechar os slides</span><svg class="arr" aria-hidden="true"><use href="#rt"/></svg>
+    <span><b>apresentar à dona</b></span>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="page" id="destino">
+  <span class="pn">7</span>
+  <h2>Onde vamos chegar</h2>
+  <p class="cv b">ao final do exercício com ela: <span class="num">1</span>este caderno ✓ · <span class="num">2</span>one-page · <span class="num">3</span>planejamento em até 10 páginas</p>
+
+  <h3>② One-page 2027 (esboço)</h3>
+  <div class="op">
+    <div class="box t1 wide"><h3>Objetivo 2027</h3><span class="blank">uma frase: gerar caixa escoando o estoque e estruturar o canal de consultoras…</span></div>
+    <div class="box t2"><h3>Meta do ano</h3>faturamento R$ ______<br>custo-diretriz (×14) R$ ______<br><span class="r">caixa mínimo R$ ______</span></div>
+    <div class="box t1 two"><h3>Participação dos canais</h3>
+      <div class="mix" style="flex-wrap:wrap"><span>outlet __%</span><span>site __%</span><span>atacado __%</span><span>lives __%</span><span>consultoras __%</span></div>
+      <span class="blank">2026 real → 2027 meta, em R$ e em %</span></div>
+    <div class="box t2 wide"><h3>Plano por trimestre</h3>
+      <div class="tri" style="margin:0"><div><b class="b">T1</b> caixa: outlet + atacado + site; piloto consultoras</div><div><b class="b">T2</b> medir, ajustar régua; <span class="hl">checkpoint junho</span></div><div><b class="b">T3</b> foco do 2º sem (ou plano B)</div><div><b class="b">T4</b> fim de ano + preparar 2028</div></div>
+      <span class="blank">meses: jan ___ fev ___ mar ___ … dez ___</span></div>
+    <div class="box t1"><h3>3 prioridades</h3>1. ______<br>2. ______<br>3. ______</div>
+    <div class="box t2"><h3>Painel quinzenal</h3>caixa (entrou · saiu · 4 sem)<br>vendas por canal × meta<br>consultoras ativas</div>
+    <div class="box t1" style="color:var(--red)"><h3 style="color:var(--red)">Plano B (2º sem)</h3><span style="color:var(--ink)">gatilho: se em maio o canal foco estiver &lt; __% da meta acumulada → realocar tempo e verba para ______</span></div>
+    <div class="box t2 wide"><h3>Riscos · Marcos</h3>riscos: caixa curto · conflito de canal · consultoras inativas · estoque que não gira · <b>queima vicia a cliente em preço baixo</b> (marca AB vendida como BC)<br>marcos: <span class="hl">junho = replanejar 2º semestre + 2028</span> (quiçá plano de 2 anos)</div>
+  </div>
+
+  <h3>③ Planejamento detalhado (até 10 páginas)</h3>
+  <div class="grid2">
+    <ul>
+      <li>1. diagnóstico: onde estamos + o oculto</li>
+      <li>2. caixa: custo de ficar de pé, custo-diretriz, faturamento mínimo</li>
+      <li>3. estoque: montes · canal · preço mínimo · prazo de escoamento</li>
+      <li>4. ICP e papel de cada canal</li>
+      <li>5. metas 2027 + % de participação dos canais</li>
+    </ul>
+    <ul>
+      <li>6. plano por trimestre, com marcos</li>
+      <li>7. 1º semestre mês a mês (o mais detalhado)</li>
+      <li>8. consultoras: modelo, fases, promessa realista, régua</li>
+      <li>9. plano B do 2º semestre: gatilhos e para onde vira o foco</li>
+      <li>10. governança: ritual quinzenal, painel, checkpoint de junho</li>
+    </ul>
+  </div>
+
+  <div class="sticky" style="margin-top:12px;max-width:640px">
+    <b>Como o plano B funciona</b><br>
+    decidir <b>agora</b>, com ela, o gatilho e a troca: "se o site não chegar a X até maio, o 2º semestre vira consultoras/atacado". Assim a mudança de foco é regra combinada, não atropelo.
+  </div>
+  <p class="cv r" style="margin-top:12px">os "____" só se preenchem com as respostas da mensagem (folha 8) + o brain de ICP</p>
+</section>
+
+<!-- 8 -->
+<section class="page" id="mensagem">
+  <span class="pn">8</span>
+  <h2>Mensagem para a dona</h2>
+  <p class="cv b">pronta pra colar no zap · Bloco 1 é o urgente</p>
+  <button type="button" id="copy">Copiar mensagem</button><span class="ok" id="ok" role="status"></span>
+  <div class="msg" id="txt">Oi, Vanessa! Tudo bem?
+Para começarmos o planejamento com o pé no chão, separamos algumas perguntas em blocos. Não precisa responder tudo de uma vez; o Bloco 1 é o mais urgente. Se tiver extrato ou planilha, pode mandar do jeito que estiver.
+
+BLOCO 1 · CAIXA
+1. Quanto entrou e quanto saiu em outubro/2026?
+2. Quais são os custos fixos do mês hoje? (aluguel, água/luz, pessoas, prestadores como a agência de marketing)
+3. Existem dívidas com parcela mensal (fábrica, bancos, impostos)? Quanto por mês e até quando?
+4. O estoque está todo pago, ou ainda há algo a pagar dele?
+
+BLOCO 2 · ESTOQUE
+5. Você estimou umas 25 mil peças. Conseguimos uma contagem por tipo e tamanho, mesmo que aproximada?
+6. De quais tipos (vestido, calça, blazer…)? Quantas peças são Zinzane e quantas são Sawari? Qual o preço médio de cada?
+7. As peças Zinzane estão com a etiqueta deles? (para planejarmos a troca pela etiqueta Margiota)
+8. Em quais tamanhos?
+9. Quanto vale o estoque a preço de custo? E a preço de venda sugerido?
+10. Onde está guardado e quanto custa manter?
+
+BLOCO 3 · VENDAS E TIME
+11. Quanto cada canal vendeu por mês em 2026: outlet, site, atacado, lives e consultoras? (a média de uns R$16 mil por mês no total está certa? E o ticket de uns R$50 é por peça ou por pedido?)
+12. O outlet de Barueri: quanto custa por mês (aluguel, equipe) e quanto vende?
+13. No atacado: para quem você vende hoje e com qual desconto?
+14. As consultoras já venderam Zinzane pelo mesmo preço do site: quantas consultoras venderam, quantas peças e em quanto tempo? No workshop o preço médio é de R$150: é o preço de queima da Zinzane? Qual a faixa de preço da queima?
+15. Na venda da consultora: quem emite a nota, quem envia, qual o prazo de entrega, quem cuida de troca? Quando a comissão é paga?
+16. Quantas mulheres já se inscreveram na turma que fecha sexta? O que acontece com elas depois da inscrição?
+17. Quem faz parte do time hoje? (nome, função, se é fixo ou terceiro)
+
+BLOCO 4 · PARA CONVERSARMOS AO VIVO
+18. Quanto você precisa tirar por mês?
+19. Existe um preço mínimo abaixo do qual você não vende?
+
+Obrigada! Com isso já montamos o diagnóstico.</div>
+</section>
+
+</main>
+<script>
+{
+  const b=document.getElementById('copy'),ok=document.getElementById('ok'),t=document.getElementById('txt');
+  b.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(t.textContent);ok.textContent='copiado ✓';}
+    catch(e){const r=document.createRange();r.selectNodeContents(t);const s=getSelection();s.removeAllRanges();s.addRange(r);ok.textContent='texto selecionado, é só copiar';}
+    setTimeout(()=>{ok.textContent=''},2500);
+  });
+}
+</script>
+</body>
+</html>

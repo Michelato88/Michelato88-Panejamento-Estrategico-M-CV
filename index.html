@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Margiota × Contravento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=Caveat:wght@600;700&family=Architects+Daughter&display=swap" rel="stylesheet">
+<style>
+/* VOICE: capa de entrega de consultoria — elegante, calma, uma parceria
+   IDEA: uma rosa dos ventos: Contravento dá a direção, Margiota é o destino
+   PICTURE: a rosa dos ventos no topo e quatro quadros, cada um uma miniatura fiel do documento
+   COLOUR+TYPE: creme, bordô Margiota, dourado; Cormorant Garamond + DM Sans
+   LAYOUT: cabeçalho com a parceria, grade 2×2 de quadros, empilha abaixo de 640px */
+:root{color-scheme:light;--cream:#F5EFE6;--paper:#FBF8F3;--bord:#4A0F16;--bord2:#5E1A22;--gold:#B08A4E;--gold-d:#7A5826;--ink:#2A1A1C;--soft:#5A4447;--line:#E3D6C6;--bp:#1c4e8f}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 'DM Sans',Arial,sans-serif;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:clamp(28px,5vw,64px) max(4vw,16px) 48px}
+header{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:clamp(28px,5vw,52px)}
+.rose{width:clamp(110px,16vw,168px);height:auto;color:var(--bord)}
+.rose .n{fill:var(--gold-d);font:700 15px 'DM Sans',sans-serif}
+@media(prefers-reduced-motion:no-preference){.rose .needle{transform-origin:100px 100px;animation:swing 2.4s cubic-bezier(.3,1.6,.5,1) both}@keyframes swing{from{transform:rotate(-38deg)}}}
+.duo{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(30px,4.6vw,48px);line-height:1.05;color:var(--bord)}
+.duo .x{color:var(--gold);font-size:.8em}
+.duo .cv{font-style:italic}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(22px,2.6vw,28px);margin:10px 0 6px;color:var(--soft)}
+.lead{margin:0;color:var(--soft);max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+.tile{display:flex;flex-direction:column;text-decoration:none;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 14px 34px #4a0f1622;border-color:var(--gold)}
+.tile:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.thumb{position:relative;aspect-ratio:16/9;overflow:hidden;border-bottom:1.5px solid var(--line)}
+.meta{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 20px 18px}
+.pt{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;font:700 15px 'DM Sans',sans-serif;color:var(--gold-d)}
+.meta h2{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:26px;line-height:1.1;color:var(--bord)}
+.meta p{margin:2px 0 0;font-size:15px;color:var(--soft)}
+.go{font-weight:700;color:var(--bord);white-space:nowrap}
+.tile:hover .go{color:var(--gold-d)}
+/* miniatura: caderno */
+.nb{background:repeating-linear-gradient(to bottom,transparent 0 17px,#cddcf0 17px 18px),#fbfaf4;padding:14% 8% 0 18%;font-family:Caveat,cursive;color:#1c3d8c}
+.nb::before{content:"";position:absolute;left:13%;top:0;bottom:0;width:1.5px;background:#eaa3a0}
+.nb::after{content:"";position:absolute;left:3%;top:6%;bottom:6%;width:12px;background:radial-gradient(circle at 6px 6px,#e7e0d2 4px,transparent 5px) 0 0/12px 26px repeat-y}
+.nb .t{font-size:clamp(20px,2.6vw,30px);font-weight:700;transform:rotate(-1.5deg)}
+.nb .hl{display:inline-block;background:#ffe74a;padding:0 6px;font-size:clamp(13px,1.4vw,17px);color:#22252c;margin-top:4px}
+.nb .st{position:absolute;right:7%;top:56%;width:30%;background:#fff59d;color:#2b2a20;padding:8px 10px;font-size:clamp(12px,1.3vw,16px);line-height:1.15;transform:rotate(-4deg);box-shadow:2px 4px 8px #0002}
+.nb .bx{position:absolute;left:18%;bottom:12%;display:flex;gap:8px}
+.nb .bx span{border:2px solid #1c3d8c;border-radius:30px 6px 26px 6px/6px 26px 6px 30px;padding:2px 10px;font-size:clamp(12px,1.3vw,16px)}
+/* miniatura: blueprint */
+.bp{background:radial-gradient(120% 90% at 50% 40%,#2259a0,#1c4e8f 45%,#163f76);color:#f3f7ff;font-family:'Architects Daughter',cursive;padding:9% 8%}
+.bp .t{font-family:Caveat,cursive;font-weight:700;font-size:clamp(20px,2.6vw,30px);transform:rotate(-1.2deg)}
+.bp .row{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-top:8px}
+.bp .b{border:1.8px solid #f3f7ff;border-radius:40px 6px 36px 6px/6px 36px 6px 40px;padding:4px 8px;font-size:clamp(10px,1.1vw,13px);min-height:38px}
+.bp .b.y{border-color:#ffe27a;color:#ffe27a;grid-column:span 2}
+/* miniatura: slides */
+.sl{background:#4A0F16;color:#F5EFE6;padding:9% 8%}
+.sl .e{font:700 clamp(8px,.9vw,11px)/1 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#C9A56A}
+.sl .t{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1;margin:6px 0 10px}
+.sl .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.sl .cards div{background:#5E1A22;border:1px solid #7A2E36;border-radius:6px;padding:6px;font:600 clamp(12px,1.5vw,18px) 'Cormorant Garamond',Georgia,serif}
+.sl .cards small{display:block;font:400 clamp(7px,.75vw,9px) 'DM Sans',sans-serif;color:#E8D9CB}
+.sl.c .cards{grid-template-columns:repeat(3,1fr)}
+.sl .q{margin-top:14px;border-left:3px solid #C9A56A;padding-left:10px;font:600 clamp(13px,1.6vw,19px)/1.2 'Cormorant Garamond',Georgia,serif}
+.badge{position:absolute;top:10px;right:10px;background:#C9A56A;color:#2a1a1c;font:700 12px 'DM Sans',sans-serif;padding:4px 10px;border-radius:20px}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--soft)}
+@media(max-width:640px){header{grid-template-columns:1fr;justify-items:start}.grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <svg class="rose" viewBox="0 0 200 200" role="img" aria-label="Rosa dos ventos">
+      <circle cx="100" cy="100" r="78" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="64" fill="none" stroke="#B08A4E" stroke-width="1" stroke-dasharray="2 5"/>
+      <g fill="none" stroke="#B08A4E" stroke-width="1.2">
+        <path d="M100 52L108 100L100 148L92 100Z" transform="rotate(45 100 100)"/>
+        <path d="M100 52L108 100L100 148L92 100Z" transform="rotate(-45 100 100)"/>
+      </g>
+      <g class="needle">
+        <path d="M100 30L112 100L100 170L88 100Z" fill="#F5EFE6" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M100 30L112 100H88Z" fill="currentColor"/>
+        <path d="M30 100L100 112L170 100L100 88Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      </g>
+      <circle cx="100" cy="100" r="4" fill="#B08A4E"/>
+      <text class="n" x="100" y="16" text-anchor="middle">N</text>
+      <text class="n" x="190" y="105" text-anchor="middle">L</text>
+      <text class="n" x="100" y="198" text-anchor="middle">S</text>
+      <text class="n" x="10" y="105" text-anchor="middle">O</text>
+    </svg>
+    <div>
+      <div class="duo"><span>Margiota</span><span class="x">×</span><span class="cv">Contravento</span></div>
+      <h1>Planejamento 2027 e Projeto Consultoras</h1>
+      <p class="lead">Tudo o que construímos juntos, em um só lugar. Clique em um quadro para abrir.</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <a class="tile" href="caderno.html">
+      <div class="thumb nb" aria-hidden="true">
+        <div class="t">Margiota × Contravento</div>
+        <span class="hl">fluxo de caixa + acompanhamento quinzenal</span>
+        <div class="st">Prioridade nº 1</div>
+        <div class="bx"><span>① Caixa</span><span>② Consultoras</span><span>③ Margiota</span></div>
+      </div>
+      <div class="meta"><span class="pt">N</span><div><h2>O caderno</h2><p>O ponto de partida: diagnóstico e brainstorm à mão</p></div><span class="go">abrir →</span></div>
+    </a>
+
+    <a class="tile" href="plano-1-pagina.html">
+      <div class="thumb bp" aria-hidden="true">
+        <div class="t">Margiota 2027 · plano em 1 página</div>
+        <div class="row"><div class="b">meta do ano</div><div class="b">participação dos canais</div><div class="b y">consultoras · o foco do ano</div></div>
+      </div>
+      <div class="meta"><span class="pt">L</span><div><h2>O plano em 1 página</h2><p>Metas, trimestres, consultoras e plano B, de uma vez só</p></div><span class="go">abrir →</span></div>
+    </a>
+
+    <a class="tile" href="planejamento-2027.pdf">
+      <div class="thumb sl" aria-hidden="true">
+        <div class="e">Contravento · planejamento estratégico</div>
+        <div class="t">Margiota 2027</div>
+        <div class="cards"><div>~25 mil<small>peças</small></div><div>~R$50<small>ticket</small></div><div>R$16 mil<small>por mês</small></div><div>5<small>canais</small></div></div>
+        <div class="q">O oculto: ~6,5 anos para escoar o estoque no ritmo de hoje</div>
+      </div>
+      <div class="meta"><span class="pt">S</span><div><h2>Planejamento 2027</h2><p>A apresentação: do diagnóstico ao plano de execução</p></div><span class="go">abrir →</span></div>
+    </a>
+
+    <a class="tile" href="projeto-consultoras.pdf">
+      <div class="thumb sl c" aria-hidden="true">
+        <span class="badge">o foco</span>
+        <div class="e">Contravento · projeto consultoras</div>
+        <div class="t">Consultoras Margiota</div>
+        <div class="cards"><div>Jornada<small>90 dias</small></div><div>Fases<small>piloto → escala</small></div><div>Prêmios<small>mês · tri · semestre</small></div></div>
+        <div class="q">Consultora ativa, não headcount</div>
+      </div>
+      <div class="meta"><span class="pt">O</span><div><h2>Projeto Consultoras</h2><p>O centro do trabalho: modelo, jornada, execução e gamificação</p></div><span class="go">abrir →</span></div>
+    </a>
+  </div>
+
+  <footer><span>Margiota × Contravento · novembro de 2026</span><span>Material em construção: os números finais chegam com as respostas da Vanessa</span></footer>
+</main>
+</body>
+</html>
